@@ -1,0 +1,1 @@
+# Area Blueprint Template

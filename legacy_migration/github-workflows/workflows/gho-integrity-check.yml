@@ -1,0 +1,35 @@
+name: GHO Repository Integrity Check
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  validate-structure:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Validate Core Directories and Scripts
+        run: |
+          echo "🔍 Auditing GHO Repository Structure..."
+          
+          MANDATORY_PATHS=(
+            "scripts/gho-create-pr.sh"
+            "scripts/gho-scaffold.sh"
+            "scripts/gho-fetch-knowledge.sh"
+            ".github/pull_request_template.md"
+          )
+
+          for path in "${MANDATORY_PATHS[@]}"; do
+            if [ ! -e "$path" ]; then
+              echo "❌ CRITICAL FAILURE: Mandatory path '$path' is missing!"
+              exit 1
+            fi
+            echo "✅ Path '$path' exists."
+          done
+
+          echo "🚀 Integrity check passed. World-class compliance confirmed."
