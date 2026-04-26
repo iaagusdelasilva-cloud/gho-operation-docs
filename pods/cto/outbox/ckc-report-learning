@@ -1,0 +1,9 @@
+# CKC-REPORT-LEARNING: CTO Insights
+**Session ID:** 20260425-CTO-REPORT
+
+## Hallazgos Técnicos
+- **Bottleneck Identificado:** El overhead de serialización JSON en el Perception Pod está agregando ~2ms innecesarios. Se recomienda migrar a Protobuf o FlatBuffers para la comunicación interna.
+- **Optimización de Red:** El tuneo de `sysctl` en los parámetros de red (TCP fast open, buffer sizes) redujo el jitter en un 15% en las pruebas locales de stress.
+
+## Recomendaciones Organizacionales
+- Establecer un contrato de datos estricto (IDL) compartido entre Perception, Engine y Action para evitar desincronizaciones en tiempo de ejecución.

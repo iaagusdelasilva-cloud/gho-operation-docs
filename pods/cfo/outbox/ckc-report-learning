@@ -1,0 +1,9 @@
+# CKC-Report-Learning: CFO Sprint #1
+
+## Resumen Técnico
+- **Hallazgo 01:** La latencia en el rebalanceo entre CEX/DEX impacta directamente en el ROI. Se sugiere priorizar puentes de baja latencia.
+- **Hallazgo 02:** La integración con Guardian reduce el riesgo de liquidación en un 15% proyectado durante picos de volatilidad.
+- **Hallazgo 03:** El costo de gas en L1 sigue siendo una barrera para arbitrajes pequeños; el foco debe mantenerse en L2 y DEX eficientes.
+
+## Acción Recomendada
+Refinar los scripts de rebalanceo automático para incluir predicción de gas fees antes de ejecutar transferencias entre pods de liquidez.
